@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Title</title>
+</head>
+<body>
+
+
+<span>姓名：</span><input type="text" class="stuName"><br/>
+
+<span>性别：</span><input type="text" class="stuGender"><br/>
+
+<span>年龄：</span><input type="text" class="stuAge"><br/>
+
+<span>手机：</span><input type="text" class="stuNumber"><br/>
+
+<span>分数：</span><input type="text" class="stuScore"><br/>
+
+<button>发送响应</button><br/>
+
+<button>增：将上述信息添加至数据库</button><br/>
+
+<button>删：根据姓名删除指定的内容</button><br/>
+
+<button>改：根据姓名修改指定的内容</button><br/>
+
+<button>查：查询数据库中所有的内容</button>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script>
+    $('button:eq(0)').click(function(){
+
+//2.在想要和后台交互的时候，调用$.ajax()方法
+
+//参数是JSON格式
+        console.log(1);
+        $.ajax({
+
+            type:'post',//get|post
+
+            url:'http://localhost:63342/ps-1/build.php',
+
+            dataType:'json',
+
+            data:{
+
+                stuName:$('.stuName').val(),
+
+                stuGender:$('.stuGender').val(),
+
+                stuAge:$('.stuAge').val(),
+
+                stuNumber:$('.stuNumber').val(),
+
+                stuScore:$('.stuScore').val(),
+
+            },
+
+//请求完成后，若收到后台返回的数据(收到响应response)，这个函数会被自动执行。
+
+            success:function(data){
+
+                console.log(data);
+
+            }
+
+        });
+
+    });
+</script>
+</body>
+
+</html>
