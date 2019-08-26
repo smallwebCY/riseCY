@@ -159,7 +159,7 @@ export default class Main {
 
     if ( databus.frame % 20 === 0 ) {
       this.player.shoot()
-      // this.music.playShoot()
+      this.music.playShoot()
     }
   }
 
