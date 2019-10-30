@@ -16,3 +16,36 @@ mast 1
 mast 2
 mast 3
 mast 4
+
+
+#10.0.0.12	m-demo.iwcard.com
+#10.0.0.229	api-demo.iwcard.com
+
+127.0.0.1 localhost
+::1 localhost
+
+127.0.0.1	v-caoyang.cn
+::1	v-caoyang.cn
+
+127.0.0.1	m-demo.boomingclub.com
+echart https://gallery.echartsjs.com/explore.html#sort=star~timeframe=all~author=all
+翻译 https://translate.google.cn/?hl=zh-CN#view=home&op=translate&sl=auto&tl=zh-CN&text=%C4%90%C6%A1n%20h%C3%A0ng%20tao%20l%E1%BA%ADp%20th%E1%BA%A5t%20b%E1%BA%A1i
+promis  https://www.cnblogs.com/whybxy/p/7645578.html
+
+es6 https://segmentfault.com/a/1190000015648606
+判断浏览器类型及语言 https://www.cnblogs.com/myIvan/p/9531941.html
+vue watch怎样同时监听两个值的变化并执行方法？ https://blog.csdn.net/qq_36616301/article/details/85162089
+vue组件间通信六种方式（完整版）  https://www.cnblogs.com/hpx2020/p/10936279.html
+vue-router中scrollBehavior的妙用 https://juejin.im/post/5b3f0860f265da0f8c0297ae
+
+https://cn.vuejs.org/v2/guide/reactivity.html#%E6%A3%80%E6%B5%8B%E5%8F%98%E5%8C%96%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9
+城市选择插件  http://www.jq22.com/jquery-info8371
+黑卡 https://m-demo.iwcard.com/  https://m-demo.iwcard.com/wap/index.php/user/login
+
+代购 https://tiantian.shop.boomingclub.com/home https://tiantian.shop.boomingclub.com/cart
+https://710d0b40d46e11e9855200163e002c63.shop.boomingclub.com/cart
+ es6数组方法find()、findIndex()与filter()的总结  https://www.jianshu.com/p/1c15be16a85a
+ 
+http://wx.shuzp.top/home  代购末模板
+
+袋鼠网站 http://m.anewcash.com/
