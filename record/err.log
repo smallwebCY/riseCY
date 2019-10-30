@@ -1,0 +1,44 @@
+[root@ht-booming-alpha-001]  eth0 = 172.26.5.34	 
+[16:44:31] PWD => ~/dev
+82># npm run build
+
+> v-shop@0.1.0 build /root/dev
+> vue-cli-service build
+
+production
+
+⠼  Building for production...
+
+
+ ERROR  Failed to compile with 1 errors                                                                                                                                                                                                                             4:45:04 PM
+
+Module build failed (from ./node_modules/thread-loader/dist/cjs.js):
+Thread Loader (Worker 0)
+No ESLint configuration found.
+    at PoolWorker.fromErrorObj (/root/dev/node_modules/thread-loader/dist/WorkerPool.js:258:12)
+    at Config.getLocalConfigHierarchy (/root/dev/node_modules/eslint/lib/config.js:268:39)
+    at Config.getConfigHierarchy (/root/dev/node_modules/eslint/lib/config.js:192:43)
+    at Config.getConfigVector (/root/dev/node_modules/eslint/lib/config.js:299:21)
+    at Config.getConfig (/root/dev/node_modules/eslint/lib/config.js:342:29)
+    at processText (/root/dev/node_modules/eslint/lib/cli-engine.js:181:33)
+    at CLIEngine.executeOnText (/root/dev/node_modules/eslint/lib/cli-engine.js:690:40)
+    at lint (/root/dev/node_modules/eslint-loader/index.js:263:17)
+    at transform (/root/dev/node_modules/eslint-loader/index.js:237:18)
+    at /root/dev/node_modules/loader-fs-cache/index.js:127:18
+    at ReadFileContext.callback (/root/dev/node_modules/loader-fs-cache/index.js:31:14)
+
+You may use special comments to disable some warnings.
+Use // eslint-disable-next-line to ignore the next line.
+Use /* eslint-disable */ to ignore all warnings in a file.
+ ERROR  Build failed with errors.
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! v-shop@0.1.0 build: `vue-cli-service build`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the v-shop@0.1.0 build script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2019-09-06T08_45_04_102Z-debug.log
+

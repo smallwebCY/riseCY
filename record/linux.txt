@@ -1,0 +1,191 @@
+本地的 msql 登录 adminer  http://localhost/phpmyadmin/   root root@localhost 123456 localhost
+
+1、例1：给root加个密码ab12。首先在DOS下进入目录mysqlbin，然后键入以下命令：
+
+mysqladmin -uroot -password ab12
+
+注：因为开始时root没有密码，所以-p旧密码一项就可以省略了。
+
+2、例2：再将root的密码改为djg345。
+
+mysqladmin -uroot -pab12 password djg345
+
+https://help.aliyun.com/knowledge_detail/41317.html?spm=a2c4g.11186631.2.9.11c34c07r4V4ql  防火墙配置
+
+4、查看端口号
+netstat -ntlp   //查看当前所有tcp端口·
+
+netstat -ntulp |grep 80   //查看所有80端口使用情况·
+
+ssh连接：Socket error Event: 32 Error: 10053.Connecting to 192.168.21x.x:22...
+Connection established.
+To escape to local shell, press Ctrl+Alt+].
+
+Socket error Event: 32 Error: 10053.
+Connection closing...Socket close.
+
+ 
+
+原因是：/etc/ssh下面没有sshd_config.ucf-dist  ssh_host_ecdsa_key  ssh_host_ecdsa_key.pub  ssh_host_ed25519_key  ssh_host_ed25519_key.pub  ssh_host_rsa_key  ssh_host_rsa_key.pub  ssh_import_id
+
+这些文件。
+
+解决方法：
+
+1）sudo dpkg-reconfigure openssh-server
+
+会重新生成上面的一些文件。
+
+2）cd /etc/ssh
+
+chmod 400 ./*
+
+3)重启sshd
+
+sudo systemctl restart sshd
+
+xshell再次连接，成功！
+
+
+在[mysqld]后添加skip-grant-tables（使用 set password for设置密码无效，且此后登录无需键入密码）
+skip-grant-tables     #在my.ini，[mysqld]下添加一行，使其登录时跳过权限检查
+找my.ini文件
+本地的 wamp mysql  mysql –uroot –p；直接回车（Enter） 
+键入无效的话 设置密码  set password for ‘root’@‘localhost’=password(‘123456’);
+
+test cy.aiflying.club mysql lamp.sh test 123456
+
+docker仓库  https://hub.docker.com
+
+
+虚拟内存  dd if=/dev/zero of=/opt/swap bs=1024 count=1024000
+chmod 600 /opt/swap     mkswap /opt/swap   swapon /opt/swap
+卸载虚拟内存  swapoff /opt/swap    df -h   rm -rf /opt/swap  df -h
+
+安装LAMP及建站简单流程：
+1. 安装 LAMP 环境
+2. 添加虚拟主机。运行命令：lamp add
+（如果只建一个站，则可以直接将网站程序上传至 /data/www/default 目录下即可）
+3. 上传并解压网站程序到网站目录，默认位置为：/data/www/网站域名/
+4. 更改网站目录权限。以 root 用户登录，运行：chown -R apache:apache /data/www/网站域名/
+5. 运行网站安装程序完成网站安装
+
+
+
+#rpm -qa|grep php 
+
+# vim /etc/profile
+
+lamp
+mysql server root password (default:lamp.sh, leave blank for default):
+mysql server root password: lamp.sh
+
+
+防火墙的开启、关闭、禁用命令
+
+（1）设置开机启用防火墙：systemctl enable firewalld.service
+
+（2）设置开机禁用防火墙：systemctl disable firewalld.service
+
+（3）启动防火墙：systemctl start firewalld
+
+（4）关闭防火墙：systemctl stop firewalld
+
+（5）检查防火墙状态：systemctl status firewalld 
+
+二、使用firewall-cmd配置端口
+
+（1）查看防火墙状态：firewall-cmd --state
+
+（2）重新加载配置：firewall-cmd --reload
+
+（3）查看开放的端口：firewall-cmd --list-ports
+
+（4）开启防火墙端口：firewall-cmd --zone=public --add-port=9200/tcp --permanent
+
+　　命令含义：
+
+　　–zone #作用域
+
+　　–add-port=9200/tcp #添加端口，格式为：端口/通讯协议
+
+　　–permanent #永久生效，没有此参数重启后失效
+
+　　注意：添加端口后，必须用命令firewall-cmd --reload重新加载一遍才会生效
+
+（5）关闭防火墙端口：firewall-cmd --zone=public --remove-port=9200/tcp --permanent
+
+find / -name php.ini 
+
+
+获取github最新的Git安装包下载链接，进入Linux服务器，执行下载，命令为： wget https://github.com/git/git/archive/v2.17.0.tar.gz ；
+
+②、压缩包解压，命令为： tar -zxvf v2.17.0.tar.gz ；
+
+③、安装编译源码所需依赖，命令为： yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils-MakeMaker 耐心等待安装，出现提示输入y即可；
+
+④、安装依赖时，yum自动安装了Git，需要卸载旧版本Git，命令为： yum remove git 出现提示输入y即可；
+
+⑤、进入解压后的文件夹，命令 cd git-2.17.0 ，然后执行编译，命令为 make prefix=/usr/local/git all 耐心等待编译即可；
+
+⑥、安装Git至/usr/local/git路径，命令为 make prefix=/usr/local/git install ；
+
+⑦、打开环境变量配置文件，命令 vim /etc/profile ，在底部加上Git相关配置信息：
+
+PATH=$PATH:/usr/local/git/bin 
+
+export PATH 
+
+然后保存，退出！
+
+⑧、输入命令 git --version ，查看安装的git版本，校验通过，安装成功。
+
+
+在Linux中输入“vi /etc/ssh/sshd_config”编辑配置文件。
+systemctl status sshd.service 查看sshd进程
+
+
+rpm -qa|grep -i mysql  linux命令--查看是否装有数据库
+
+把177主机下/mnt/file1文件上传到 172.25.254.97主机的/root/Desktop/目录下：   
+   [root@localhost mnt]# ls niu/
+   file1  file2  file3  file4  file5
+   [root@localhost mnt]# scp niu/file1 root@172.25.254.97:/root/Desktop/
+
+
+
+yum install -y lrzsz 安装上传下载插件 
+在Linux命令行下输入 上传rz
+在linux下输入命令 sz
+
+
+
+云服务器  2019 5 14
+删除文件  rm 文件名
+删除文件夹 rm -rf 文件名
+查看乱码文件编号  ls -i
+删除乱码文件  find -inum 乱码文件编号 -delete
+删除乱码文件夹 find -inum 乱码文件编号 -exec rm -rf {} \;
+查看服务器开放接口 ss -lnt
+启动SSH服务 service sshd restart
+
+
+
+配置 配置文件   vi /etc/ssh/sshd_config   #pubkeyAuthentication yes
+启动服务 systemctl restart sshd
+
+拉取阿帕奇镜像 docker pull php:apache
+启动docker systemctl start docker
+开机启动docker  systemctl enable docker.service
+启动容器 docker stop test
+暂停容器 docker start test
+重启容器 docker restart test
+移除容器 docker rm test
+强行移除容器 docker rm -f test
+进入docker  docker  exec -ti  容器名  bash
+
+
+显示当前用户 whoami
+显示当前目录 pwd
+切换用户 su root
+切换到root用户 改变环境变量 su - root
