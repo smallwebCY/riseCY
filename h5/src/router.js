@@ -291,7 +291,8 @@ const router = new Router({
 
 // add route title
 router.beforeEach((to, from, next) => {
-    //console.log("to:", to);
+    // console.log("to:", to);
+    console.log(router.currentRoute.path)
     //debugger
     if (to.meta.title) {
         document.title = booming_i18n == 1?to.meta.title:to.meta.vn_title
@@ -301,9 +302,11 @@ router.beforeEach((to, from, next) => {
         next();
         return;
     }
+
     if (localStorage.getItem('sid')) { //判断本地是否存在sid
         next();
     } else {
+        console.log("hhh")
         if (to.path === '/login') {
             next();
         } else {

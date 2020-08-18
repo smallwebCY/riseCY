@@ -19,16 +19,16 @@ const store = new Vuex.Store({
       mobile:'',
     },
   },
-  mutations: {
-    increment(state) {
-      state.count++
-    },
-    updateDefaultAddress(state, address) {
-      state.defaultAddress = address
-    },
-    updateUserInfo(state, userInfo) {
-      state.userInfo = Object.assign(state.userInfo,userInfo)
-    },
-  }
+  // mutations: {
+  //   increment(state) {
+  //     state.count++
+  //   },
+  //   updateDefaultAddress(state, address) {
+  //     state.defaultAddress = address
+  //   },
+  //   updateUserInfo(state, userInfo) {
+  //     state.userInfo = Object.assign(state.userInfo,userInfo)
+  //   },
+  // }
 })
 export default store

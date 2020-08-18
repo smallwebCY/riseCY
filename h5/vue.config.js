@@ -11,6 +11,9 @@ function resolve(dir) {
 module.exports = {
   lintOnSave: true,
   productionSourceMap: false,  // 去掉打包后js中，会自动生成的一些map文件
+  publicPath: process.env.NODE_ENV === 'production'
+    ? './'
+    : './',
   devServer: {
         proxy: {
       '/shop_api': {
@@ -47,7 +50,7 @@ module.exports = {
       postcss: {
         plugins: [
           autoprefixer({
-            browsers: ['Android >= 4.0', 'iOS >= 7']
+            overrideBrowserslist: ['Android >= 4.0', 'iOS >= 7']
           }),
           pxtorem({
             rootValue: 50,

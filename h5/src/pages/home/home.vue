@@ -1,5 +1,7 @@
 <template>
 	<div class="container pd50">
+		<p>aaaa</p>
+		<cybutton username="cupcup"></cybutton>
 		<div class="store">
 			<van-row type="flex" align="center" class="row" gutter="0">
 				<van-col>
@@ -46,6 +48,24 @@
 </template>
 
 <script>
+    import cybutton from 'cy-button'
+	var Mock = require('mockjs')
+	var data = Mock.mock({
+		// 属性 list 的值是一个数组，其中含有 1 到 10 个元素
+		'list|1-10': [{
+			// 属性 id 是一个自增数，起始值为 1，每次增 1
+			'id|+1': 1
+		}]
+	})
+	var jud = Mock.mock({
+		"boolean|1-2": true
+	})
+	var dnum = Mock.mock({
+	"number|+1": 202   // 初始值为2
+	})
+	var dotnum =  Mock.mock('@natural')
+	// 
+	console.log(dotnum)
 	var logo = require('../../assets/logo.png');
 	var homeIcon = require('../../assets/home_icon_active.png');
 	var carIcon = require('../../assets/car_icon.png');
@@ -80,7 +100,8 @@
 			[Row.name]: Row,
 			[Col.name]: Col,
 			[Icon.name]: Icon,
-			[List.name]: List
+			[List.name]: List,
+			cybutton:cybutton,
 		},
 		data() {
 			return {
@@ -247,6 +268,10 @@
 	}
 </script>
 <style lang="less" scoped>
+	div{
+		clear: both;
+		zoom: 1;
+	}
 	.home-swiper img {
 		width: 100%;
 		height: 188px;
