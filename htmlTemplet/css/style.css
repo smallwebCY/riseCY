@@ -3,10 +3,23 @@
     margin: 0;
     -webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color: transparent;
 }
-html, body{
+html{
 	width: 100%;
-    position: relative;
-    font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑',Arial,sans-serif;
+	overflow-x: hidden;
+	font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB',Arial,sans-serif;
+}
+body {
+	width: 100%;
+	max-width: 640px;
+	margin: 0 auto;
+    font-size: 14px;
+    position: relative!important;
+    top: 0!important;
+    transition: all 0.3s;
+	opacity: 0;
+}
+body.show {
+    opacity: 1;
 }
 li{
     list-style: none;
@@ -40,30 +53,38 @@ input, textarea, a, div, button, select {
 .relative{
 	position: relative;
 }
-
 .row{
     display: flex;
 	display: -webkit-flex;
     justify-content: center;
     align-items: center;
-	
 }
+/* 水平靠后 垂直居中 */
 .row-end-center{
 	display: flex;
 	display: -webkit-flex;
 	justify-content: flex-end;
 	align-items: center;
 }
+/* 水平靠前 垂直居中 */
 .row-start-center{
 	display: flex;
 	display: -webkit-flex;
 	justify-content: start;
 	align-items: center;
 }
+/* 水平环绕 垂直居中 */
 .row-around-center{
 	display: flex;
 	display: -webkit-flex;
 	justify-content: space-around;
+	align-items: center;
+}
+/* 水平两边 垂直居中 */
+.row-between-center{
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-between;
 	align-items: center;
 }
 .col{
@@ -92,9 +113,25 @@ input, textarea, a, div, button, select {
 .head-bar{
 	width: 100%;
 	max-width:7.5rem;
+	height: 1.22rem;
 	position: fixed;
 	top: 0;
 	z-index: 2;
+	padding: 0 16px;
+	box-sizing: border-box;
+	background-color: rgba(256,256,256,0.5);
+}
+.logo img{
+	width: 1.04rem;
+	height: 1.04rem;
+}
+.logo h3{
+	margin-left: 0.12rem;
+	font-size: 0.3rem;
+	color: #371f11;
+}
+.shareWrap{
+	
 }
 .container1{
 	max-width:7.5rem;
@@ -111,22 +148,6 @@ input, textarea, a, div, button, select {
 	width: 100%;
 	position: relative;
 }
-.section2{
-	width: 100%;
-	position: relative;
-}
-.section3{
-	width: 100%;
-	position: relative;
-}
-.section4{
-	width: 100%;
-	position: relative;
-}
-.head-bar img{
-	width: 100%;
-}
-
 /* 遮罩 */
 .Layer.on {
     -webkit-opacity: 1;

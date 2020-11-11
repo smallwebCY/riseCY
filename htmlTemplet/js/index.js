@@ -20,7 +20,7 @@ $(function(){
     var param = getParam();
     var MT_yuyue_info = 'MT_yuyue_token_info';
     var regInfo = getCookie(MT_yuyue_info) ? JSON.parse(getCookie(MT_yuyue_info)) : '';
-	
+	$("body").addClass("show");
 	// 是否登录 显示信息
 	if(regInfo && regInfo['token']){
 	    $('.acount').removeClass('hide');
