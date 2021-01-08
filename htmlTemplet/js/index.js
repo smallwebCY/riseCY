@@ -36,7 +36,6 @@ $(function(){
 		    tipOpen("已加入预约",1000)
 		    return;
 		}else{
-			$(".Layer").addClass("on")
 			$(".regist").removeClass("hide")
 		}
 	})
@@ -218,7 +217,36 @@ $(function(){
         $('.'+cls).show().siblings().hide();   
         $('.pop').css({'position': 'fixed'});
     }
-    
+	// 飘落
+    function falldown(){
+        // var d = "<div class='maple'>🍁<div>";
+        var domH = $(document).height();
+        setInterval(function () {
+            var d = "<img class='maple rotate" + Math.ceil(Math.random() * 4) + "' src='" + "img/feather.png'>"
+            var f = $(document).width();
+            var e = 100 + Math.random() * f; // 花的定位left值
+            var o = 0.4 + Math.random(); // 花的透明度
+            var fon = 100 + Math.random() * 15; // 花大小
+            var l = e - 2 * f * Math.random(); // 花的横向位移
+            var k = 30000 + 20000 * Math.random();
+            var deg = Math.random() * 360; // 花的方向
+            // console.log(e,l)
+            $(d).clone().appendTo("body").css({
+                left: e + "px",
+                top: 0,
+                opacity: o,
+                transform: "rotate(" + deg + "deg)",
+                width: fon,
+                zIndex: 50
+            }).animate({
+                top: $(document).height() - 30,
+                left: l + "px",
+                // opacity: 1,
+            }, k, "linear", function () {
+                $(this).remove()
+            })
+        }, 2000)
+    }
     function share(share_id, mobile){
         
         //分享文案
