@@ -5,7 +5,6 @@
 }
 html{
 	width: 100%;
-	overflow-x: hidden;
 	font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB',Arial,sans-serif;
 }
 body {
@@ -59,6 +58,13 @@ input, textarea, a, div, button, select {
     justify-content: center;
     align-items: center;
 }
+/* 水平两边 垂直靠上 */
+.row-between-start{
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
 /* 水平靠后 垂直居中 */
 .row-end-center{
 	display: flex;
@@ -110,7 +116,12 @@ input, textarea, a, div, button, select {
     justify-content: flex-start;
     align-items: center;
 }
-
+.container{
+	max-width:7.5rem;
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+}
 .container1{
 	max-width:7.5rem;
 	height: 100vh;
@@ -413,6 +424,40 @@ input::-webkit-input-placeholder {
     color: #FFFFFF;
 	border-radius: 5px;
 } */
+
+/* 箭头上下 */
+
+@keyframes flight{
+	0% {
+	    -webkit-transform: translateY(0px);
+	    -moz-transform: translateY(0px);
+	    -ms-transform: translateY(0px);
+	    -o-transform: translateY(0px);
+	    transform: translateY(0px);
+	    opacity: 0.2;
+	}
+	100% {
+	    -webkit-transform: translateY(20px);
+	    -moz-transform: translateY(20px);
+	    -ms-transform: translateY(20px);
+	    -o-transform: translateY(20px);
+	    transform: translateY(20px);
+	    opacity: 0.6;
+	}
+}
+/* 轉圈 */
+.rotateCircle{
+	animation: rotateCircle 5s infinite linear both;
+	-webkit-animation: rotateCircle 5s infinite linear both;
+}
+@keyframes rotateCircle{
+	from{-webkit-transform: rotate(0deg);transform: rotate(0deg);}
+	to{-webkit-transform: rotate(360deg);transform: rotate(360deg);}
+}
+@-webkit-keyframes rotateCircle{
+	from{-webkit-transform: rotate(0deg);transform: rotate(0deg);}
+	to{-webkit-transform: rotate(360deg);transform: rotate(360deg);}
+}
 /* 羽毛飘落 */
 .maple{
 	position: absolute;
