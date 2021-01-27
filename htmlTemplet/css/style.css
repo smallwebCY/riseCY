@@ -424,10 +424,42 @@ input::-webkit-input-placeholder {
     color: #FFFFFF;
 	border-radius: 5px;
 } */
-
+/* 缩放 */
+@-webkit-keyframes flashzoom{
+    to{
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+		opacity: 0.8;
+    }
+}
+@keyframes flashzoom{
+    to{
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+		opacity: 0.8;
+    }
+}
 /* 箭头上下 */
 
 @keyframes flight{
+	0% {
+	    -webkit-transform: translateY(0px);
+	    -moz-transform: translateY(0px);
+	    -ms-transform: translateY(0px);
+	    -o-transform: translateY(0px);
+	    transform: translateY(0px);
+	    opacity: 0.2;
+	}
+	100% {
+	    -webkit-transform: translateY(20px);
+	    -moz-transform: translateY(20px);
+	    -ms-transform: translateY(20px);
+	    -o-transform: translateY(20px);
+	    transform: translateY(20px);
+	    opacity: 0.6;
+	}
+}
+@-webkit-keyframes flight{
 	0% {
 	    -webkit-transform: translateY(0px);
 	    -moz-transform: translateY(0px);
@@ -473,7 +505,7 @@ input::-webkit-input-placeholder {
     	transform: rotate(3600deg);
     }
 }
-@keyframes rotate1{
+@-webkit-keyframes rotate1{
     0%{
 		transform: rotate(0deg);
 	}
