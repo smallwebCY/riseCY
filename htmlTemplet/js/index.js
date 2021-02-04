@@ -13,13 +13,78 @@ var mobile = '';
 var urlx = location.href.split('#')[0];
 var urla = encodeURIComponent(urlx);
 var clipboard = new ClipboardJS('.copyBtn');
+var tools = {
+	//是否微信
+	isWeixn: function() {
+		var ua = navigator.userAgent.toLowerCase();
+		if(ua.match(/MicroMessenger/i) == "micromessenger") {
+			return true;
+		} else {
+			return false;
+		}
+	},
+	//是否qq
+	isQq: function() {
+		var ua = navigator.userAgent.toLowerCase();
+		if(ua.match(/QQ/i) == 'qq' && ua.indexOf('mqqbrowser') < 0) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+	//判断是否为ios
+	_IsIOS: function() {
+		var ua = navigator.userAgent.toLowerCase();
+		if(ua.match(/iPhone\sOS/i) == "iphone os") {
+			return true;
+		} else {
+			return false;
+		}
+	},
+	//判断是否为ipad
+	_IsIpad: function() {
+		var ua = navigator.userAgent.toLowerCase();
+		if(ua.match(/ipad/i) == "ipad") {
+			return true;
+		} else {
+			return false;
+		}
+	},
+			//判断是否为mac os
+	_mac: function() {
+		var ua = navigator.userAgent.toLowerCase();
+		if(ua.match(/mac\sos/i) == "mac os") {
+			return true;
+		} else {
+			return false;
+		}
+	},
+	//判断是否为安卓
+	_IsAndroid: function() {
+		var ua = navigator.userAgent.toLowerCase();
+		if(ua.match(/Android/i) == "android") {
+			return true;
+		} else {
+			return false;
+		}
+	},
+	//判断是否为windows
+	_IsWindows: function() {
+		var ua = navigator.userAgent.toLowerCase();
+		if(ua.indexOf("win32") >= 0||ua.indexOf("wow32") >= 0||ua.indexOf("win64") >= 0||ua.indexOf("wow64") >= 0) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+}
 $(function(){
     var isClick = true;
     var mobileReg = /^1(3|4|5|6|7|8|9)\d{9}$/;
     var resCode = 0;
     var param = getParam();
-    var MT_yuyue_info = 'MT_yuyue_token_info';
-    var regInfo = getCookie(MT_yuyue_info) ? JSON.parse(getCookie(MT_yuyue_info)) : '';
+    var akdy_yuyue_info = 'akdy_yuyue_info';
+    var regInfo = getCookie(akdy_yuyue_info) ? JSON.parse(getCookie(akdy_yuyue_info)) : '';
 	$("body").addClass("show");
 	// 是否登录 显示信息
 	if(regInfo && regInfo['token']){
@@ -68,50 +133,56 @@ $(function(){
             })
         }
     })
- 
+	 //预约
+	 $('.registBtn').click(function(){
+			 var mobile = $('.mobile').val();
+			 var code = $('.fy-code').val();
+			 if($.trim(mobile) == '' || $.trim(code) == ''){
+				 tipOpen('手机号或验证码有误！',1000)
+			 }else{
+				 var obj = {
+					 mobile: mobile,
+					 verify_code: code
+				 }
+				 ajax('index/akda/appoint', obj, 'post', function(res){
+					 // console.log(res)
+					 tipOpen(res['msg'],1000);
+					 if(res['code'] == 0){
+						 var obj = {};
+						if(res['msg'] == "预约成功"){
+							$("#yyNum").text(yynum+1);
+						}
+						 obj['token'] = res['data']['token'];
+						 obj['mobile'] = res['data']['appoint_data']['mobile'];
+						 setCookie(akdy_yuyue_info, JSON.stringify(obj));
+						 regInfo = obj;
+						
+						 $('.phonebox').removeClass('hide');
+						 $('.phone').text(res['data']['appoint_data']['mobile']);
+						 
+						$(".yyBtn").addClass('hide')
+						$('.yyedbtn').removeClass('hide');
+						// $('.pop').removeClass('hide');
+						// $('.yySuccess').removeClass('hide');
+						
+						$(".regist").addClass("hide")
+					 }
+				 })
+			 }
+	 })
 	// 复制预约奖励码
-	$(".copyBtn1").on("click",function(){
-		clipboard.on('success', function(e) {
-			// console.log("copysuc");
-			tipOpen("兑换码复制成功",1000);
-			e.clearSelection();
-		});
-		
-		clipboard.on('error', function(e) {
-			// console.log("copyerr");
-			tipOpen("长按兑换码复制",1000);
-			e.clearSelection();
-		});
-	})
+	clipboard.on('success', function(e) {
+		// console.log("copysuc");
+		tipOpen("兑换码复制成功",1000);
+		e.clearSelection();
+	});
+	
+	clipboard.on('error', function(e) {
+		// console.log("copyerr");
+		tipOpen("长按兑换码复制",1000);
+		e.clearSelection();
+	});
    
-	// 复制邀请奖励码
-	$(".copyBtn2").on("click",function(){
-		clipboard.on('success', function(e) {
-			// console.log("copysuc");
-			tipOpen("兑换码复制成功",1000);
-			e.clearSelection();
-		});
-		
-		clipboard.on('error', function(e) {
-			// console.log("copyerr");
-			tipOpen("长按兑换码复制",1000);
-			e.clearSelection();
-		});
-	})
-	// 复制链接
-	$(".copyBtn3").on("click",function(){
-		clipboard.on('success', function(e) {
-			// console.log("copysuc");
-			tipOpen("复制成功",1000);
-			e.clearSelection();
-		});
-		
-		clipboard.on('error', function(e) {
-			// console.log("copyerr");
-			tipOpen("复制成功",1000);
-			e.clearSelection();
-		});
-	})
 	
 	// 检测机型
 	function detectOS() {
@@ -122,6 +193,14 @@ $(function(){
 	        alert("苹果手机");
 	    } else if (u.indexOf('Windows Phone') > -1) {           //winphone手机
 	        alert("winphone手机");
+	    }
+	}
+	// 检测机型
+	function detectOS() {
+	    var u = navigator.userAgent.toLowerCase();
+		var protocol = location.protocol;
+	    if (u.indexOf('iphone') > -1||u.indexOf('ipad') > -1||u.indexOf('mac os x') > -1) {          //苹果
+	    } else{
 	    }
 	}
     // toast 提示

@@ -5,6 +5,7 @@
 }
 html{
 	width: 100%;
+	height: 100%;
 	font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB',Arial,sans-serif;
 }
 body {
@@ -272,13 +273,7 @@ input, textarea, a, div, button, select {
 }
 .pop-wrap{
 	position: absolute;
-	width: 5.97rem;
-	padding-bottom: 1rem;
-	box-sizing: border-box;
-	background: url(../img/pop-bg.png);
-	background-position: left top;
-	background-repeat: no-repeat;
-	background-size: 100%;
+	width: 6.2rem;
 	left: 50%;
 	top: 50%;
 	transform: translateX(-50%) translateY(-50%);
@@ -295,7 +290,15 @@ input, textarea, a, div, button, select {
 }
 .pop-content{
 	width: 100%;
+	margin-top: 0.2rem;
+	background: url(../img/popbg.png);
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 	position: relative;
+}
+.regist-form{
+	padding: 0.58rem 0;
 }
 .form-wrap{
 	position: relative;
@@ -303,18 +306,18 @@ input, textarea, a, div, button, select {
 	font-size: 0;
 }
 .form-wrap input {
+	/* height: 0.64rem; */
 	width: 100%;
-	padding: 0.2rem 0;
-	line-height: 0.17rem;
-    border: 1px solid #9e662d;
-    border-radius: 0rem;
-    background: none;
-    outline: medium;
-    padding-left: 0.38rem;
-    box-sizing: border-box;
-    font-size: 0.22rem;
-    color: #3e1f23;
-    background-color: #f5f3ee;
+	padding: 0.15rem 0;
+	line-height: 0.3rem;
+	border: 1px solid #9e662d;
+	border-radius: 0rem;
+	background: none;
+	outline: medium;
+	box-sizing: border-box;
+	font-size: 0.28rem;
+	color: #3e1f23;
+	background-color: #f5f3ee;
 }
 .form-wrap .err-tip{
 	height: 0.3rem;
@@ -328,10 +331,9 @@ input, textarea, a, div, button, select {
 .getcode {
     width: 1.72rem;
 	text-align: center;
-	
 	margin-left: 0.13rem;
-    height: 0.68rem;
-	line-height: 0.68rem;
+    height: 0.64rem;
+    line-height: 0.64rem;
     border: 1px solid #68554b;
 	box-sizing: border-box;
     background-color: #9d6c31;
@@ -358,6 +360,25 @@ textarea::placeholder{
 }
 input::-webkit-input-placeholder {
 	color: #bd9c5e;
+}
+/* 微信终端提示 */
+
+.loadTipPop{
+    width: 7.5rem;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    position: fixed;
+    left: 50%;
+    margin-left: -3.75rem;
+    top: 0;
+    z-index: 9999;
+    display: none;
+}
+.loadTipPop img{
+	position: absolute;
+	width: 50%;
+	right: 0.2rem;
+	top: 0.1rem;
 }
 /*toast 样式 -移动端*/
 
