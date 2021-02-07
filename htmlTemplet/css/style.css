@@ -40,9 +40,7 @@ img{
 	user-select: none;
 
 }
-.h1, .h2, .h3, .h4, .h5, .h6, a, abbr, body, cite, dd, dl, dt, h1, h2, h3, h4, h5, h6, iframe, input, li, object, ol, p, pre, span, ul {
-    font-family: "Source Sans Pro","Source Han Sans CN","SimHei", "Helvetica Neue", Arial,'PingFang SC',sans-serif;
-}
+
 input, textarea, a, div, button, select {
     border: 0;
     outline: 0;
@@ -308,9 +306,9 @@ input, textarea, a, div, button, select {
 .form-wrap input {
 	/* height: 0.64rem; */
 	width: 100%;
-	padding: 0.15rem 0;
-	line-height: 0.3rem;
-	border: 1px solid #9e662d;
+	padding: 0.17rem 0;
+	line-height: 0.64rem;
+	/* border: 1px solid #9e662d; */
 	border-radius: 0rem;
 	background: none;
 	outline: medium;
@@ -334,7 +332,7 @@ input, textarea, a, div, button, select {
 	margin-left: 0.13rem;
     height: 0.64rem;
     line-height: 0.64rem;
-    border: 1px solid #68554b;
+    /* border: 1px solid #68554b; */
 	box-sizing: border-box;
     background-color: #9d6c31;
     color: #FFFFFF;

@@ -10,8 +10,9 @@ var mySwiper = new Swiper ('.swiper-container', {
 })   
 var shareId = '';   
 var mobile = '';  
-var urlx = location.href.split('#')[0];
-var urla = encodeURIComponent(urlx);
+var urlx = location.href.split('?')[0];//截取  官网拉人链接
+var urlc = location.href.split("#")[0];//截取  wx分享 参数链接
+var urla = encodeURIComponent(urlc);
 var clipboard = new ClipboardJS('.copyBtn');
 var tools = {
 	//是否微信
@@ -333,8 +334,8 @@ $(function(){
             'title': '我真的等了你很久呢！',
             'description': '一份来自异世界的神秘大礼，不来康康嘛(´･ω･`)',
             'Coshow': '',
-            'image': _CDN + 'activity/yuyue/m/img/icon1.png',
-            'link': _URL + '/activity/yuyue/m/mshare.html?share_id=' + share_id + '&mobile=' + mobile,
+            'image': 'https://static.sh7img.com/activity/cn/m/img/navbar.png',
+            'link': urlx + '?share_id=' + share_id,
         };
         // console.log(shareData);
         $.ajax({
