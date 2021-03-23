@@ -444,6 +444,48 @@ input::-webkit-input-placeholder {
 	border-radius: 5px;
 } */
 /* 缩放 */
+.scal {
+    animation: scalable 0.3s ease-in-out 0s infinite alternate none;
+    -webkit-animation: scalable 0.3s ease-in-out 0s infinite alternate none;
+}
+
+@-webkit-keyframes scalable{
+	0% {
+	    -webkit-transform: scale(0.9);
+	    -moz-transform: scale(0.9);
+	    -ms-transform: scale(0.9);
+	    -o-transform: scale(0.9);
+	    transform: scale(0.9);
+	    opacity: 1;
+	}
+	100% {
+	    -webkit-transform: scale(0.8);
+	    -moz-transform: scale(0.8);
+	    -ms-transform: scale(0.8);
+	    -o-transform: scale(0.8);
+	    transform: scale(0.8);
+	    opacity: 1;
+	}
+}
+@keyframes scalable{
+	0% {
+	    -webkit-transform: scale(0.9);
+	    -moz-transform: scale(0.9);
+	    -ms-transform: scale(0.9);
+	    -o-transform: scale(0.9);
+	    transform: scale(0.9);
+	    opacity: 1;
+	}
+	100% {
+	    -webkit-transform: scale(0.8);
+	    -moz-transform: scale(0.8);
+	    -ms-transform: scale(0.8);
+	    -o-transform: scale(0.8);
+	    transform: scale(0.8);
+	    opacity: 1;
+	}
+}
+/* 缩放 */
 @-webkit-keyframes flashzoom{
     to{
         -webkit-transform: scale(0.9);
