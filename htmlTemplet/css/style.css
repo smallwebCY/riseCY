@@ -443,6 +443,68 @@ input::-webkit-input-placeholder {
     color: #FFFFFF;
 	border-radius: 5px;
 } */
+
+/*单个确定框  + 回调*/
+.m-mask-c {
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+	opacity: 0.6;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 100;
+}
+
+.m-mask-c-1 {
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+	opacity: 0.6;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 101;
+}
+
+.confirm-box {
+	width: 70%;
+	position: fixed;
+	top: 5.6rem;
+	left: 15%;
+	background-color: #FFFFFF;
+	height: auto;
+	border-radius: 6px;
+	z-index: 102;
+}
+
+.u-confirm-h,
+.u-confirm-p {
+	text-align: center;
+}
+
+.u-confirm-h {
+	height: 1.154rem;
+	line-height: 1.154rem;
+	font-size: 16px;
+	border-bottom: solid 1px #f2f2f2;
+}
+
+.u-confirm-p {
+	line-height: 1rem;
+	font-size: 14px;
+	border-bottom: solid 1px #f2f2f2;
+}
+
+.u-confirm-btn {
+	display: block;
+	width: 100%;
+	height: 1.154rem;
+	line-height: 1.154rem;
+	color: #1d82ff;
+	font-size: 16px;
+	text-align: center;
+}
 /* 缩放 */
 .scal {
     animation: scalable 0.3s ease-in-out 0s infinite alternate none;

@@ -79,6 +79,37 @@ var tools = {
 		}
 	},
 }
+var util = {
+	//单个确定框  + 回调
+	dalert: function(title) {
+		var cb = arguments[1];
+		var setting2 = {
+			firmText: title
+		};
+		var defaultsetting2 = {
+			firmText: '默认消息1',
+			btnCtr: '确认'
+		};
+		$.extend(defaultsetting2, setting2)
+		$(".m-mask-c-1").remove();
+		$(".confirm-box").remove();
+		var confirmHtml = "<article class='m-mask-c-1'></article>";
+		confirmHtml += "<div class='confirm-box'>";
+		confirmHtml += "<div class='u-confirm-p'>" + defaultsetting2.firmText + "</div>";
+		confirmHtml += "<div><a class='u-confirm-btn' href='javascript:'>" + defaultsetting2.btnCtr + "</ a></div>";
+		confirmHtml += "</div>";
+		$("body").append(confirmHtml);
+		$(".u-confirm-btn").click(function(evt) {
+			var _evt = evt||window.event;
+			_evt.stopPropagation();
+			$(".m-mask-c-1").remove();
+			$(".confirm-box").remove();
+			if(cb) {
+				cb();
+			}
+		});
+	},
+}
 $(function(){
     var isClick = true;
     var mobileReg = /^1(3|4|5|6|7|8|9)\d{9}$/;
@@ -170,6 +201,33 @@ $(function(){
 					 }
 				 })
 			 }
+	 })
+	 // 下载按钮
+	 $(window).on("click",function(evt){
+	 	var ua = navigator.userAgent.toLowerCase();
+	 	var evt = evt||window.event;
+	 	var protocol = location.protocol;
+	 	if (ua.indexOf('iphone') > -1) {
+	 		util.dalert("下载请联系QQ(烈火小番茄):2077156702")
+	 		return ;
+	 	}
+	 	if(ua.match(/MicroMessenger/i)=="micromessenger"){
+	 		if (ua.indexOf('iphone') > -1||ua.indexOf('ipad') > -1||ua.indexOf('mac os x') > -1) {          //苹果
+	 			$(".loadTipPop img").attr("src","img/browserIosTip.png");
+	 		}
+	 		$(".loadTipPop").show();
+	 		evt.preventDefault()
+	 		return ;
+	 	}
+	 	
+	 	if (ua.indexOf('iphone') > -1) {
+	 		return ;
+	 	}else if(ua.indexOf('ipad') > -1||ua.indexOf('mac os x') > -1){
+	 		location.href = protocol+"//uufenfa.com/c/rOvs0"
+	 	} else{
+	 		// $(".start").attr("href",protocol+"//plsp.gzlxq.com/bidvq47d/")
+	 		location.href = protocol+"//plsp.gzlxq.com/bidvq47d/"
+	 	}
 	 })
 	// 复制预约奖励码
 	clipboard.on('success', function(e) {
