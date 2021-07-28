@@ -563,7 +563,10 @@ input::-webkit-input-placeholder {
     }
 }
 /* 箭头上下 */
-
+/* animation: flight 2s ease infinite alternate both;
+-moz-animation: flight 2s ease infinite alternate both;
+-webkit-animation: flight 2s ease infinite alternate both;
+-o-animation: flight 2s ease infinite alternate both; */
 @keyframes flight{
 	0% {
 	    -webkit-transform: translateY(0px);
