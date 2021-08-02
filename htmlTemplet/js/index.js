@@ -295,7 +295,8 @@ $(function(){
         return obj;
     }
 
-    function setCookie(cname, cvalue, exdays = 365) {
+    function setCookie(cname, cvalue, exdays) {
+		var exdays = exdays||365
         var d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
         var expires = "expires="+d.toUTCString();
