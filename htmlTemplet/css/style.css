@@ -359,6 +359,14 @@ textarea::placeholder{
 input::-webkit-input-placeholder {
 	color: #bd9c5e;
 }
+/* input type number 隐藏上下加减符号 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+}
+input[type='number'] {
+  -moz-appearance: textfield !important;
+}
 /* 微信终端提示 */
 
 .loadTipPop{
